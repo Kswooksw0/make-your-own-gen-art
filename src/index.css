@@ -1,0 +1,171 @@
+/* body {
+  margin: 0;
+  padding: 0;
+  border: red solid 2px;
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Noto+Sans&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-color: rgb(17, 17, 17) !important;
+} */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  padding: 0;
+  margin: 0;
+  color: black;
+  font-family: "Kanit", sans-serif;
+}
+
+img {
+  width: 40px;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: rgb(17, 17, 17);
+}
+
+.input {
+  padding: 0.75rem;
+  background-color: rgb(17, 17, 17);
+  border-radius: 0.75rem;
+  border-width: 1.5px;
+  border-color: #5B21B6;
+  box-shadow: 0 0 20px #5B21B6;
+}
+
+.pin-button {
+  box-shadow: 0 0 12px #5B21B6;
+}
+
+.input-border:focus {
+  background-color: rgb(17, 17, 17) !important;
+  box-shadow: 0 0 30px 10px #5B21B6;
+}
+
+.slider-panel {
+  /* box-shadow: 0 0 10px #5B21B6; */
+}
+
+
+#gen-art-canvas {
+  /* border:red solid 1px; */
+}
+
+
+.slider-text {
+  @apply text-xl text-white
+}
+
+input[type="range"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  /*  overflow: hidden;  remove this line*/
+  /* New additions */
+  height: 0.35rem;
+  background: #353535;
+}
+
+
+
+/* Thumb: webkit */
+input[type="range"]::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  height: 15px;
+  width: 15px;
+  background-color: #5B21B6;
+  box-shadow: 0 0 20px #5B21B6;
+  border-radius: 50%;
+  border: none;
+
+  /* box-shadow: -407px 0 0 400px #f50; emove this line */
+  transition: .2s ease-in-out;
+}
+
+/* Thumb: Firefox */
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #5B21B6;
+  box-shadow: 0 0 20px #5B21B6;
+  border-radius: 50%;
+  border: none;
+
+  /* box-shadow: -407px 0 0 400px #f50; emove this line */
+  transition: .2s ease-in-out;
+}
+
+/* Hover, active & focus Thumb: Webkit */
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(91, 33, 182, .1)
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 13px rgba(91, 33, 182, .2)
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 13px rgba(91, 33, 182, .2)
+}
+
+/* Hover, active & focus Thumb: Firfox */
+
+input[type="range"]::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(91, 33, 182, .1)
+}
+input[type="range"]:active::-moz-range-thumb {
+  box-shadow: 0 0 0 13px rgba(91, 33, 182, .2)
+}
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 13px rgba(91, 33, 182, .2)   
+}
+
+
+/* panel buttons */
+.panel-button {
+  width: 20px;
+  height:20px;
+  background-color:#5B21B6;
+}
+
+
+
+
+/* input[type=range] {
+  @apply range pr-6 accent-red-500
+
+} */
+/* .slider {
+  @apply range pr-6 accent-red-500
+} */
+
+
+/* .login {
+  @apply text-4xl font-bold font-noto underline border-lime-600;
+} */

@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "../../../../Library/Mobile Documents/com~apple~CloudDocs/Desktop/coding/creative coding/p5js"
+	},
+	{
+		"path": "../.."
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.multiRootWorkspaceName": "p5js"
+  }
+}

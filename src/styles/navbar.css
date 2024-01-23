@@ -1,0 +1,18 @@
+/* navbar.css */
+.navbar {
+  /* display: none;  */
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: transform 200ms ease-in; /* Add a 200ms ease-in transition to the transform property */
+  transform: translateX(
+    100%
+  ); /* Move the Navbar to the right, initially hidden */
+  background-color: white;
+  /* Add other styles as needed */
+}
+
+.navbar.active {
+    /* display: block; */
+  transform: translateX(0); /* Show the Navbar by moving it to the left (0) */
+}
