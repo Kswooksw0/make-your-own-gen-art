@@ -2,7 +2,7 @@ import "./index.css";
 import React, { useState, useEffect } from "react";
 import UserContext from "./context/UserContext";
 import { Routes, Route } from "react-router-dom";
-import { Homepage, Login, Register, Gallery } from "./pages";
+import { Homepage, Login, Register, Gallery, Error } from "./pages";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -33,9 +33,7 @@ function App() {
               <Route path="/homepage" element={<Homepage />} />
               <Route path="/gallery" element={<Gallery />} />
             </>
-          ) : (
-            ""
-          )}
+          ) : ""}
         </Routes>
       </div>
     </UserContext.Provider>

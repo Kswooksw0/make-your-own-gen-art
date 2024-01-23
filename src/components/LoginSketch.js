@@ -19,7 +19,7 @@ const LoginSketch = () => {
     p.setup = () => {
       p.createCanvas(500, 500, p.WEBGL);
       p.background(0, 0, 0);
-      p.strokeWeight(2);
+      p.strokeWeight(3);
       p.stroke("black");
       p.fill("white");
       box = new Box(p, 0, 0, 0.01);

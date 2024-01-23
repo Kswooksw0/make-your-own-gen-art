@@ -6,7 +6,6 @@ import { formatDate } from "../utilities/formatDate";
 
 const Sketch = () => {
   const sketchRef = useRef();
-  const [isPressed, setIsPressed] = useState(false);
 
   useEffect(() => {
     // Instantiate the p5 instance
