@@ -343,7 +343,13 @@ const Sketch = () => {
           let directToGalleryMsg = setTimeout(() => {
             galleryMsg.style("visibility", "hidden");
             clearTimeout(directToGalleryMsg);
-            window.location.href = window.location.href;
+            // window.location.href = window.location.href;
+            const isProduction = process.env.NODE_ENV === "production";
+            if (isProduction) {
+              window.location.reload(true); // Force a full page reload in production
+            } else {
+              window.location.href = window.location.href; // Regular reload in development
+            }
           }, 2500);
         });
       }
