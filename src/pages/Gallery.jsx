@@ -4,6 +4,7 @@ import { fetchFiles } from "../utilities/fetchFiles.js";
 import NavBar from "../components/NavBar.jsx";
 import Greeting from "../components/Greeting.jsx";
 import Card from "../components/Card.jsx";
+import { convertDateToNumber } from "../utilities/convertDateToNumber.js";
 
 const Gallery = () => {
   const [gifs, setGifs] = useState([]);
@@ -14,33 +15,48 @@ const Gallery = () => {
     setIsNavbarOpen(!isNavbarOpen);
   };
 
-  useEffect(() => {
+  const fetchGifs = async () => {
     const user = JSON.parse(sessionStorage.getItem("user"));
     const userId = user.id;
+    try {
+      const files = await fetchFiles(userId);
 
-    const fetchGifs = async () => {
-      try {
-        const files = await fetchFiles(userId);
+      const urls = files.map((file) => {
+        const publicURL = supabase.storage
+          .from("generative-art-gifs")
+          .getPublicUrl(`${userId}/${file.name}`);
 
-        const urls = files.map((file) => {
-          const publicURL = supabase.storage
-            .from("generative-art-gifs")
-            .getPublicUrl(`${userId}/${file.name}`);
+        const dateForComparison = convertDateToNumber(file.name);
 
-          return {
-            ...file,
-            gifUrl: publicURL.data.publicUrl,
-          };
-        });
-        setGifs(urls);
-      } catch (error) {
-        console.error("Error creating signed URL:", error.message);
-        return null;
-      }
-    };
+        return {
+          ...file,
+          dateForComparison,
+          gifUrl: publicURL.data.publicUrl,
+        };
+      });
 
+      urls.sort((file1, file2) => {
+        return file2.dateForComparison - file1.dateForComparison
+      })
+
+      setGifs(urls);
+    } catch (error) {
+      console.error("Error creating signed URL:", error.message);
+      return null;
+    }
+  };
+
+  useEffect(() => {
     fetchGifs();
   }, []);
+
+  const removeAndUpdateGifs = async (folder, file) => {
+    const { data, error } = await supabase.storage
+      .from("generative-art-gifs")
+      .remove([`${folder}/${file}`]);
+
+    fetchGifs();
+  };
 
   return (
     <>
@@ -67,6 +83,7 @@ const Gallery = () => {
                 gifUrl={gif.gifUrl}
                 id={gif.id}
                 metadata={gif.metadata}
+                removeAndUpdateGifs={removeAndUpdateGifs}
               />
             ))
           ) : (

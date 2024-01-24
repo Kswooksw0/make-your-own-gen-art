@@ -4,7 +4,7 @@ import { extractDate } from "../utilities/extractDate";
 import { convertToMegabytes } from "../utilities/getInMB";
 import { pinToIPFS } from "../utilities/interact";
 
-const Card = ({ name, gifUrl, id, metadata }) => {
+const Card = ({ name, gifUrl, id, metadata, removeAndUpdateGifs }) => {
   const descriptionBox = useRef("");
   const [description, setDescription] = useState("");
   const [ipfsUrl, setIpfsUrl] = useState("");
@@ -31,6 +31,12 @@ const Card = ({ name, gifUrl, id, metadata }) => {
     descriptionBox.current.value = "";
   };
 
+  const deleteGif = () => {
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    const userId = user.id;
+    removeAndUpdateGifs(userId, name);
+  };
+
   return (
     <>
       <div class="flex flex-col items-center w-full h-fit bg-black border border-purple-500 rounded-xl shadow-purple-500 shadow-md z-0">
@@ -38,17 +44,16 @@ const Card = ({ name, gifUrl, id, metadata }) => {
         <div class="flex justify-evenly items-center w-10/12">
           <button
             onClick={() => setIsOpened(true)}
-            class="my-6 p-2 w-6/12 rounded-3xl bg-white"
+            class="my-4 p-3 w-fit rounded-3xl bg-white"
           >
             Get Info
           </button>
-          {/* <div
-            class={`w-3 h-3 rounded-full ${
-              !isPinned
-                ? "bg-red-800 border border-red-800"
-                : "bg-green-700 border border-green-700"
-            }`}
-          ></div> */}
+          <button
+            onClick={() => deleteGif()}
+            class="my-4 p-3 w-fit rounded-3xl bg-white"
+          >
+            Delete
+          </button>
         </div>
       </div>
 

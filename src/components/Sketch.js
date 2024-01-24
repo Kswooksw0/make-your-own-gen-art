@@ -229,7 +229,7 @@ const Sketch = () => {
       buttonContainer.style("display", "flex");
       buttonContainer.style("justify-content", "center");
 
-      recordButton = p.createButton("Create Gif");
+      recordButton = p.createButton("Create GIF");
       recordButton.style("width", "150px");
       recordButton.style("background-color", "#18181b");
       recordButton.style("border-radius", "0.75rem");
@@ -328,6 +328,20 @@ const Sketch = () => {
           uploadFile(file);
           recordButton.style("visibility", "visible");
           progressText.style("visibility", "hidden");
+
+          const galleryMsg = p.createDiv('Visit your gallery to see your new GIF!')
+          galleryMsg.style("border", "white")
+          galleryMsg.style("width", "15%")
+          galleryMsg.style("font-size", "1.5rem")
+          galleryMsg.style("color", "rgb(255 255 255)");
+          galleryMsg.position(p.windowWidth * 0.42, p.windowHeight * 0.15)
+
+          let directToGalleryMsg = setTimeout(() => {
+            galleryMsg.style("visibility", "hidden")
+            clearTimeout(directToGalleryMsg)
+            window.location.reload();
+          }, 3000)
+
         });
       }
     };

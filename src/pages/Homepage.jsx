@@ -18,7 +18,7 @@ const Homepage = () => {
 
         <div class="flex items-center flex-col absolute top-20 left-24 w-3/12">
           <div class="text-4xl text-white">3D Generative Art</div>
-          <div class="w-full my-6 text-white font-noto text-justify text-md">
+          <div class="w-full my-6 p-4 text-white font-noto text-justify text-md border">
             <div>
               Generative art is an art form that has been created, in whole or
               in part, with the use of an autonomous system. Tweak the
@@ -28,7 +28,10 @@ const Homepage = () => {
             </div>
             <br />
             <div>
-              Double click around the image to alter its form.
+              Double click around the image to switch its form. Once you are happy with the look, 
+              click on "Create GIF" to create a unique generative art GIF of your own. In your gallery,
+              pin the GIF that you want on IPFS (InterPlanetary File System) — a peer-to-peer distributed file system
+              for decentralised sharing. 
             </div>
           </div>
         </div>
