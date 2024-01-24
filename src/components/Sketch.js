@@ -345,6 +345,7 @@ const Sketch = () => {
             clearTimeout(directToGalleryMsg);
             // window.location.href = window.location.href;
             const isProduction = process.env.NODE_ENV === "production";
+            alert(isProduction)
             if (isProduction) {
               window.location.reload(true); // Force a full page reload in production
             } else {
