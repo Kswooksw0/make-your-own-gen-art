@@ -3,9 +3,11 @@ import p5 from "p5";
 import { generateCoord } from "./generateCoord";
 import { supabase } from "../client.js";
 import { formatDate } from "../utilities/formatDate";
+import { useNavigate } from "react-router-dom";
 
 const Sketch = () => {
   const sketchRef = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Instantiate the p5 instance
@@ -102,7 +104,7 @@ const Sketch = () => {
       ma = p.atan(1 / p.sqrt(2));
       p.ortho(-p.width / 2, p.width / 2, p.height / 2, -p.height / 2, 0, 2000);
 
-      const sliderWidthFactor = 0.80;
+      const sliderWidthFactor = 0.8;
       const sliderWidth = 160;
       const firstSliderHeight = p.height * 0.2;
 
@@ -329,19 +331,20 @@ const Sketch = () => {
           recordButton.style("visibility", "visible");
           progressText.style("visibility", "hidden");
 
-          const galleryMsg = p.createDiv('Visit your gallery to see your new GIF!')
-          galleryMsg.style("border", "white")
-          galleryMsg.style("width", "15%")
-          galleryMsg.style("font-size", "1.5rem")
+          const galleryMsg = p.createDiv(
+            "Visit your gallery to see your new GIF! 🎉"
+          );
+          galleryMsg.style("border", "white");
+          galleryMsg.style("width", "15%");
+          galleryMsg.style("font-size", "1.5rem");
           galleryMsg.style("color", "rgb(255 255 255)");
-          galleryMsg.position(p.windowWidth * 0.42, p.windowHeight * 0.15)
+          galleryMsg.position(p.windowWidth * 0.42, p.windowHeight * 0.15);
 
           let directToGalleryMsg = setTimeout(() => {
-            galleryMsg.style("visibility", "hidden")
-            clearTimeout(directToGalleryMsg)
-            window.location.reload();
-          }, 3000)
-
+            galleryMsg.style("visibility", "hidden");
+            clearTimeout(directToGalleryMsg);
+            window.location.href = window.location.href;
+          }, 2500);
         });
       }
     };
