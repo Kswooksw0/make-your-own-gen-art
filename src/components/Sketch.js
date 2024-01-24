@@ -347,7 +347,8 @@ const Sketch = () => {
             const isProduction = process.env.NODE_ENV === "production";
             // alert(isProduction)
             if (isProduction) {
-              window.location.reload(true); // Force a full page reload in production
+              // window.location.reload(true); // Force a full page reload in production
+              navigate('/homepage')
             } else {
               // window.location.href = window.location.href; // Regular reload in development
               navigate('/homepage')
