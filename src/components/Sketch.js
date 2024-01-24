@@ -347,11 +347,12 @@ const Sketch = () => {
             const isProduction = process.env.NODE_ENV === "production";
             // alert(isProduction)
             if (isProduction) {
-              // window.location.reload(true); // Force a full page reload in production
-              navigate('/homepage')
+              window.location.reload(true); // Force a full page reload in production
+              // navigate('/homepage')
             } else {
               // window.location.href = window.location.href; // Regular reload in development
-              navigate('/homepage')
+              // navigate('/homepage')
+              window.location.reload(true); // Force a full page reload in production
             }
           }, 2500);
         });
