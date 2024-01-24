@@ -41,7 +41,6 @@ const Gallery = () => {
 
     fetchGifs();
   }, []);
-  console.log(gifs);
 
   return (
     <>
@@ -52,9 +51,11 @@ const Gallery = () => {
             Your Brainy Gif Collection
           </div>
           <div class="w-5/12 text-center text-white text-md font-noto">
-            Your brainy gif collection is here. Pin it on IPFS to share with
+            {gifs.length > 0
+              ? `Your brainy gif collection is here 😜. Pin it on IPFS to share with
             your friends in a decentralised way. Whether red, blue or grey, it
-            matters.
+            matters.`
+              : "You currently have not made any GIFs 🫤. Click on 'Create GIF' button on the homepage to populate your gallery ."}
           </div>
         </div>
 
