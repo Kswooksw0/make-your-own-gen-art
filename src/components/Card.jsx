@@ -53,7 +53,7 @@ const Card = ({ name, gifUrl, id, metadata }) => {
       </div>
 
       {isOpened ? (
-        <div class="absolute w-screen h-fit flex justify-center items-center z-10">
+        <div class="absolute w-screen min-h-max flex justify-center items-center z-10">
           <div class="relative grid grid-cols-2 gap-4 w-10/12 h-2/6 p-4 bg-light-black rounded-3xl">
             <div class="col-span-1">
               <img
