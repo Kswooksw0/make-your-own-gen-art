@@ -39,7 +39,7 @@ const Card = ({ name, gifUrl, id, metadata, removeAndUpdateGifs }) => {
 
   return (
     <>
-      <div class="flex flex-col items-center w-full h-fit bg-black border border-purple-500 rounded-xl shadow-purple-500 shadow-md z-0">
+      <div class="flex flex-col items-center w-full h-full bg-black border border-purple-500 rounded-xl shadow-purple-500 shadow-md z-0">
         <img class="relative w-10/12 h-full" key={id} alt={name} src={gifUrl} />
         <div class="flex justify-evenly items-center w-10/12">
           <button
