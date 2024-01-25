@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import p5 from "p5";
 import { generateCoord } from "./generateCoord";
 import { supabase } from "../client.js";
@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const Sketch = () => {
   const sketchRef = useRef();
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Instantiate the p5 instance
@@ -343,7 +342,7 @@ const Sketch = () => {
           let directToGalleryMsg = setTimeout(() => {
             galleryMsg.style("visibility", "hidden");
             clearTimeout(directToGalleryMsg);
-            window.location.reload(true); 
+            window.location.reload(true);
           }, 2500);
         });
       }
