@@ -23,7 +23,7 @@ const Homepage = () => {
               Generative art is an art form that has been created, in whole or
               in part, with the use of an autonomous system. Tweak the
               parameters to see how individual pieces interact with each other
-              to form a unique emergence of shapes, colours, light, velocity and
+              to form a 'brainy' emergence of shapes, colours, light, velocity and
               textures.
             </div>
             <br />
